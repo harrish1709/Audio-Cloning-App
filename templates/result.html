@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Clone Complete</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      margin-top: 15%;
+    }
+    a {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #28a745;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+    a:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+  <h2>Cloning Successful 🎉</h2>
+  <a href="{{ url_for('download_file', filename=filename) }}" download>
+  <button>Download Cloned Voice</button>
+  </a>
+</body>
+</html>
