@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Voice Cloner</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      margin-top: 10%;
+    }
+    .form-group {
+      margin: 15px 0;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input[type="file"], input[type="submit"] {
+      padding: 10px;
+      width: 300px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Voice Cloner</h2>
+  <form action="/process" method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="audio">Upload Audio (.wav)</label>
+      <input type="file" name="audio" id="audio" accept=".wav" required>
+    </div>
+    <div class="form-group">
+      <label for="model">Upload Model (.pth)</label>
+      <input type="file" name="model" id="model" accept=".pth" required>
+    </div>
+    <input type="submit" value="Clone Voice">
+  </form>
+</body>
+</html>
