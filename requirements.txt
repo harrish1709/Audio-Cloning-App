@@ -1,7 +1,7 @@
 Flask
-torch
-fairseq @ git+https://github.com/shivammehta25/fairseq@main
-hydra-core==1.1.1
-omegaconf==2.1.1
+torch==2.2.2+cu126 --extra-index-url https://download.pytorch.org/whl/cu126
+fairseq==0.12.2
+hydra-core==1.0.7
+omegaconf==2.0.5
 scipy
 numpy
