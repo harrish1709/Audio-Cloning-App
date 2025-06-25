@@ -23,4 +23,6 @@ RUN pip install torch==2.2.2+cu121 --index-url https://download.pytorch.org/whl/
 RUN pip install --no-cache-dir -r requirements.txt
 
 EXPOSE 5000
+# Make sure Python can find local modules
+ENV PYTHONPATH=/app
 CMD ["python", "app.py"]
