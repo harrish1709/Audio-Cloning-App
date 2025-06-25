@@ -1,5 +1,5 @@
 Flask
 torch
-fairseq==0.12.2
+fairseq @ git+https://github.com/facebookresearch/fairseq.git@main#egg=fairseq
 scipy
 numpy
