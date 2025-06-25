@@ -1,3 +1,4 @@
+pip<24.1
 Flask
 torch
 fairseq @ git+https://github.com/facebookresearch/fairseq.git@main#egg=fairseq
