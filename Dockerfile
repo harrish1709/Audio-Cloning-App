@@ -25,4 +25,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 ENV PYTHONPATH=/app
 
 EXPOSE 5000
-CMD ["gunicorn", "app:app", "--bind", "0.0.0.0:5000"]
+CMD ["python", "app.py"]
+
