@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y \
 # Copy source code
 COPY . /app
 
-# Optional: downgrade pip if omegaconf needed
+# Downgrade pip to support omegaconf 2.0.6
 RUN pip install --upgrade pip==23.3.1
 
 # Install Python dependencies
