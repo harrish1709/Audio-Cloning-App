@@ -1,28 +1,28 @@
-FROM nvidia/cuda:12.1.1-cudnn8-runtime-ubuntu22.04
+FROM python:3.10-slim
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV PYTHONUNBUFFERED=1
-
-RUN apt-get update && apt-get install -y \
-    python3.10 python3.10-venv python3.10-dev python3-pip \
-    build-essential git ffmpeg libsndfile1 \
-    && apt-get clean
-
-RUN ln -sf /usr/bin/python3.10 /usr/bin/python
-
-# Downgrade pip to allow legacy packages like omegaconf==2.0.5
-RUN pip install --upgrade pip==23.3.1
-
 WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    ffmpeg \
+    libsndfile1 \
+    git \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Copy source code
 COPY . /app
 
-# Install CUDA-compatible torch manually first
-RUN pip install torch==2.2.2+cu121 --index-url https://download.pytorch.org/whl/cu121
+# Optional: downgrade pip if omegaconf needed
+RUN pip install --upgrade pip==23.3.1
 
-# Install remaining Python dependencies
+# Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-EXPOSE 5000
-# Make sure Python can find local modules
+# Ensure local modules like rvc_python/ are found
 ENV PYTHONPATH=/app
+
+EXPOSE 5000
 CMD ["python", "app.py"]
