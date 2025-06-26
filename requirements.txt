@@ -4,3 +4,4 @@ hydra-core==1.0.7
 omegaconf==2.0.5
 scipy
 numpy
+rvc_python
