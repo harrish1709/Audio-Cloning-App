@@ -1,39 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Voice Cloner</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      text-align: center;
-      margin-top: 10%;
-    }
-    .form-group {
-      margin: 15px 0;
-    }
-    label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: bold;
-    }
-    input[type="file"], input[type="submit"] {
-      padding: 10px;
-      width: 300px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Multi-Voice Cloner</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            text-align: center;
+        }
+
+        input[type="file"] {
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-  <h2>Voice Cloner</h2>
-  <form action="/process" method="POST" enctype="multipart/form-data">
-    <div class="form-group">
-      <label for="audio">Upload Audio (.wav)</label>
-      <input type="file" name="audio" id="audio" accept=".wav" required>
-    </div>
-    <div class="form-group">
-      <label for="model">Upload Model (.pth)</label>
-      <input type="file" name="model" id="model" accept=".pth" required>
-    </div>
-    <input type="submit" value="Clone Voice">
-  </form>
+    <h1>Multi-Voice Cloner</h1>
+    <form method="POST" action="/process" enctype="multipart/form-data">
+        <label><strong>Upload Audio (.wav):</strong></label><br>
+        <input type="file" name="audio" accept=".wav" required><br><br>
+
+        <label><strong>Upload Multiple Models (.pth):</strong></label><br>
+        <input type="file" name="models" accept=".pth" multiple required><br><br>
+
+        <button type="submit">Clone Voice</button>
+    </form>
 </body>
 </html>
