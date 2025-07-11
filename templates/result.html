@@ -1,31 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Clone Complete</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      text-align: center;
-      margin-top: 15%;
-    }
-    a {
-      display: inline-block;
-      padding: 12px 24px;
-      background-color: #28a745;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      font-size: 16px;
-    }
-    a:hover {
-      background-color: #218838;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Cloning Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            text-align: center;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-  <h2>Cloning Successful 🎉</h2>
-  <a href="{{ url_for('download_file', filename=filename) }}" download>
-  <button>Download Cloned Voice</button>
-  </a>
+    <h1>Cloned Audio Files</h1>
+    <ul>
+        {% for filename in filenames %}
+            <li>
+                <a href="{{ url_for('download_file', filename=filename) }}" download>
+                    Download Clone {{ loop.index }} ({{ filename }})
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
