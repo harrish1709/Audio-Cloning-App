@@ -57,7 +57,7 @@
       color: #555;
     }
 
-    input[type="file"] {
+    input[type="file"], select {
       width: 100%;
       padding: 12px;
       border: 1px solid #ccc;
@@ -95,13 +95,17 @@
   <div class="card">
     <img src="https://cdn-icons-png.flaticon.com/512/727/727245.png" alt="Voice Logo" class="logo" />
     <h1>Real-Time Voice Cloning</h1>
-    <p>Upload your voice and model to create an AI clone.</p>
+    <p>Upload your voice and select a model to clone it.</p>
     <form method="POST" action="/process" enctype="multipart/form-data">
       <label for="audio">Upload Audio (.wav)</label>
       <input type="file" name="audio" accept=".wav" required />
 
-      <label for="model">Upload Model File (.pth)</label>
-      <input type="file" name="model" accept=".pth" required />
+      <label for="model_name">Choose Model</label>
+      <select name="model_name" required>
+        {% for model in models %}
+          <option value="{{ model }}">{{ model }}</option>
+        {% endfor %}
+      </select>
 
       <button type="submit">🎙️ Clone Your Voice</button>
     </form>
