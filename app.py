@@ -5,7 +5,7 @@ app = Flask(__name__)
 UPLOAD_DIR = os.path.join(os.path.dirname(__file__), "uploads")
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
-MODEL_API_URL = ""  # Replace with your deployed API URL
+MODEL_API_URL = "https://rvc-8lxe.onrender.com"  # Replace with your deployed API URL
 
 @app.route("/")
 def index():
