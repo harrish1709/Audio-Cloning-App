@@ -27,7 +27,7 @@ def process():
     }
 
     # Send to model API
-    response = requests.post(MODEL_API_URL, files=files)
+    response = requests.post(MODEL_API_URL, files=files, timeout=600)
 
     if response.status_code != 200:
         return f"Error from model API: {response.text}", 500
