@@ -1,37 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Multi-Voice Cloner</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 40px;
-            text-align: center;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Real-Time Voice Cloning</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/727/727245.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #f9dcdc, #d0c4fb);
+    }
 
-        input[type="file"] {
-            margin: 10px 0;
-        }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            margin-top: 20px;
-            cursor: pointer;
-        }
-    </style>
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      max-width: 520px;
+      width: 100%;
+      text-align: center;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .logo {
+      width: 60px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    p {
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      margin: 16px 0 6px;
+      font-weight: 600;
+      color: #555;
+    }
+
+    input[type="file"] {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      background-color: #f8f8f8;
+      cursor: pointer;
+    }
+
+    button {
+      margin-top: 30px;
+      width: 100%;
+      background: #6a5acd;
+      color: white;
+      border: none;
+      padding: 14px;
+      border-radius: 14px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background: #5a4dbd;
+    }
+
+    @media (max-height: 700px) {
+      .card {
+        max-height: none;
+        margin: 40px 0;
+      }
+    }
+  </style>
 </head>
 <body>
-    <h1>Multi-Voice Cloner</h1>
+  <div class="card">
+    <img src="https://cdn-icons-png.flaticon.com/512/727/727245.png" alt="Voice Logo" class="logo" />
+    <h1>Real-Time Voice Cloning</h1>
+    <p>Upload your voice and models to create instant AI clones.</p>
     <form method="POST" action="/process" enctype="multipart/form-data">
-        <label><strong>Upload Audio (.wav):</strong></label><br>
-        <input type="file" name="audio" accept=".wav" required><br><br>
+      <label for="audio">Upload Audio (.wav)</label>
+      <input type="file" name="audio" accept=".wav" required />
 
-        <label><strong>Upload Multiple Models (.pth):</strong></label><br>
-        <input type="file" name="models" accept=".pth" multiple required><br><br>
+      <label for="models">Upload Model Files (.pth)</label>
+      <input type="file" name="models" accept=".pth" multiple required />
 
-        <button type="submit">Clone Voice</button>
+      <button type="submit">🎙️ Clone Your Voice</button>
     </form>
+  </div>
 </body>
 </html>
