@@ -7,7 +7,7 @@ app = Flask(__name__)
 UPLOAD_DIR = os.path.join(os.path.dirname(__file__), "uploads")
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
-MODEL_API_URL = ""  # Replace with real Render URL
+MODEL_API_URL = "https://rvc-q1qq.onrender.com"  # Replace with real Render URL
 
 @app.route("/")
 def index():
