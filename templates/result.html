@@ -49,9 +49,6 @@
       font-weight: 600;
       color: #6a5acd;
       margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
     }
 
     audio {
@@ -90,7 +87,7 @@
     <div class="audio-wrapper">
       <div class="filename">🔊 Cloned Output</div>
       <audio controls>
-        <source src="{{ url_for('download_file', filename=filename) }}" type="audio/wav">
+        <source src="{{ url_for('static', filename=filename) }}" type="audio/wav">
         Your browser does not support the audio element.
       </audio>
     </div>
