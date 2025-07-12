@@ -95,13 +95,13 @@
   <div class="card">
     <img src="https://cdn-icons-png.flaticon.com/512/727/727245.png" alt="Voice Logo" class="logo" />
     <h1>Real-Time Voice Cloning</h1>
-    <p>Upload your voice and models to create instant AI clones.</p>
+    <p>Upload your voice and model to create an AI clone.</p>
     <form method="POST" action="/process" enctype="multipart/form-data">
       <label for="audio">Upload Audio (.wav)</label>
       <input type="file" name="audio" accept=".wav" required />
 
-      <label for="models">Upload Model Files (.pth)</label>
-      <input type="file" name="models" accept=".pth" multiple required />
+      <label for="model">Upload Model File (.pth)</label>
+      <input type="file" name="model" accept=".pth" required />
 
       <button type="submit">🎙️ Clone Your Voice</button>
     </form>
