@@ -1,10 +1,3 @@
 Flask
+requests
 gunicorn
-torch
-fairseq==0.12.2
-hydra-core==1.0.7
-omegaconf==2.0.6
-scipy
-pydub
-soundfile
-rvc_python
