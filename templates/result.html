@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cloning Result</title>
+  <title>Cloning Results</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     html, body {
@@ -38,17 +38,29 @@
       color: #333;
     }
 
-    .audio-wrapper {
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
       background: #f3f3fb;
       margin: 12px 0;
       padding: 16px 20px;
       border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
     }
 
     .filename {
       font-weight: 600;
       color: #6a5acd;
       margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     audio {
@@ -83,14 +95,18 @@
 </head>
 <body>
   <div class="container">
-    <h1>🎧 Your Cloned Voice</h1>
-    <div class="audio-wrapper">
-      <div class="filename">🔊 Cloned Output</div>
-      <audio controls>
-        <source src="{{ url_for('static', filename=filename) }}" type="audio/wav">
-        Your browser does not support the audio element.
-      </audio>
-    </div>
+    <h1>🎧 Your Cloned Audio Files</h1>
+    <ul>
+      {% for filename in filenames %}
+        <li>
+          <div class="filename">🔊 Clone {{ loop.index }}</div>
+          <audio controls>
+            <source src="{{ url_for('download_file', filename=filename) }}" type="audio/wav">
+            Your browser does not support the audio element.
+          </audio>
+        </li>
+      {% endfor %}
+    </ul>
     <a class="back-btn" href="/">⬅ Back to Home</a>
   </div>
 </body>
